@@ -96,13 +96,31 @@ input {
     z-index: 1000;
 }
 
-#marca{
-    flex-shrink: 0;
-    background-color: transparent;
+
+/* Estilos neon para a notificação de consentimento de cookies */
+#cookieConsent {
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 20px;
-    text-align: center;
-    position: fixed;
-    bottom: 0;
-    width: 90%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px red;
+    animation: pulse 1.5s infinite;
+    text-shadow: 0 0 5px red, 0 0 10px red, 0 0 20px red;
+}
+
+/* Estilos do botão "Aceitar" */
+#cookieConsent .button {
     color: white;
+    background-color: transparent;
+    border: 2px solid red;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    animation: pulse 1.5s infinite;
+    transition: all 0.3s ease;
+}
+
+#cookieConsent .button:hover {
+    
+    background-color: rgba(255, 2, 6, 0.8);
+    box-shadow: 0 0 10px red;
 }

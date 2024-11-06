@@ -1,3 +1,31 @@
+// Função para verificar consentimento de cookies
+function verificarConsentimentoCookies() {
+    const consentimento = getCookie('cookieConsent');
+    if (!consentimento) {
+        document.getElementById('cookieConsent').style.display = 'block';
+    }
+}
+
+// Função para aceitar os cookies e ocultar a notificação
+function aceitarCookies() {
+    setCookie('cookieConsent', 'aceito', 365); // Salva a autorização por 1 ano
+    document.getElementById('cookieConsent').style.display = 'none';
+}
+
+// Eventos de consentimento de cookies
+document.getElementById('aceitarCookies').addEventListener('click', aceitarCookies);
+
+// Verifica consentimento de cookies ao carregar a página
+window.onload = () => {
+    verificarConsentimentoCookies();
+    if (getCookie('cookieConsent') === 'aceito') {
+        carregarAtendimentos(); // Carrega os atendimentos caso o consentimento já exista
+        atualizarLista();
+    }
+};
+
+
+
 let atendimentos = {
     realizados: new Set(),
     agendados: new Set(),
